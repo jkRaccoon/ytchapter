@@ -1,0 +1,23 @@
+{
+  "name": "ytchapter-infra",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "cdk": "cdk",
+    "deploy": "cdk deploy --all --require-approval never",
+    "destroy": "cdk destroy --all --force",
+    "synth": "cdk synth",
+    "diff": "cdk diff"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.160.0",
+    "constructs": "^10.3.0",
+    "microsaas-infra": "file:./microsaas-infra"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "aws-cdk": "^2.160.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.0"
+  }
+}

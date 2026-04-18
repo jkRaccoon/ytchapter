@@ -1,0 +1,3 @@
+[submodule "infra/microsaas-infra"]
+	path = infra/microsaas-infra
+	url = https://github.com/jkRaccoon/microsaas-infra.git

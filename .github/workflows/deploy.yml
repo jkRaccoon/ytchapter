@@ -21,6 +21,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+      - name: Generate .env
+        run: node infra/microsaas-infra/scripts/ga4/write-env.mjs ytchapter
       - run: npm run build
       - run: npm install
         working-directory: infra

@@ -32,5 +32,3 @@ cdk.out
 .env.*
 !.env.example
 
-# infra/microsaas-infra added via submodule
-infra/microsaas-infra

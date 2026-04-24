@@ -15,7 +15,24 @@
       crossorigin="anonymous"></script>
     <title>유튜브 챕터 타임스탬프 포매터 — 0:00 규칙 자동 검증</title>
     <meta name="description" content="자유 형식 타임스탬프(1분30초, 01:30, 1m30s 등)를 유튜브 챕터 표준으로 자동 변환하고 0:00 시작·10초 간격·3개 이상·오름차순 규칙을 실시간 검증합니다." />
-  </head>
+  <!-- Google Analytics 4 (shared property G-PDW82YCFFW) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDW82YCFFW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted',
+        functionality_storage: 'granted',
+        personalization_storage: 'granted',
+        security_storage: 'granted'
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-PDW82YCFFW', { send_page_view: true });
+    </script>
+    </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

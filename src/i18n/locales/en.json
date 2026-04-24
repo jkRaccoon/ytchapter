@@ -45,7 +45,13 @@
     "emptyLine": "(empty line)",
     "guideLink": "Guide",
     "faqLink": "FAQ",
-    "guideAndFaq": "For YouTube chapter rules, see Guide; for frequently asked questions, see FAQ."
+    "guideAndFaq": "For YouTube chapter rules, see Guide; for frequently asked questions, see FAQ.",
+    "chapterCounter": "{{valid}} chapters / {{total}} lines",
+    "srtBtn": "Download SRT",
+    "historyLabel": "Recent history",
+    "historyEmpty": "(No saved history)",
+    "historyRestore": "Restore",
+    "outputClickToCopy": "Click output to copy"
   },
   "guide": {
     "title": "YouTube Chapter Rules Guide — 0:00 · 10s Gap · 3+ Chapters",

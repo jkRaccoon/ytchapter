@@ -13,6 +13,25 @@ export interface FormatResult {
   rulesViolated: string[];
 }
 
+/** SRT timestamp from seconds, optionally using a total video duration for end time */
+function toSrtTime(s: number): string {
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const ss = s % 60;
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(ss).padStart(2, '0')},000`;
+}
+
+export function chaptersToSrt(chapters: ParsedChapter[]): string {
+  const valid = chapters.filter((c) => c.seconds !== null);
+  return valid
+    .map((c, i) => {
+      const start = c.seconds ?? 0;
+      const end = i + 1 < valid.length ? (valid[i + 1].seconds ?? start + 10) - 1 : start + 30;
+      return `${i + 1}\n${toSrtTime(start)} --> ${toSrtTime(end)}\n${c.title}\n`;
+    })
+    .join('\n');
+}
+
 export function parseLine(raw: string, index: number): ParsedChapter {
   const errors: string[] = [];
   const trimmed = raw.trim();

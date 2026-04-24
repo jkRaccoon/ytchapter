@@ -45,7 +45,13 @@
     "emptyLine": "(빈 줄)",
     "guideLink": "가이드",
     "faqLink": "FAQ",
-    "guideAndFaq": "유튜브 챕터 규칙은 가이드, 자주 묻는 질문은 FAQ."
+    "guideAndFaq": "유튜브 챕터 규칙은 가이드, 자주 묻는 질문은 FAQ.",
+    "chapterCounter": "챕터 {{valid}}개 / 전체 {{total}}줄",
+    "srtBtn": "SRT 다운로드",
+    "historyLabel": "최근 기록",
+    "historyEmpty": "(저장된 기록 없음)",
+    "historyRestore": "복원",
+    "outputClickToCopy": "결과 클릭 시 복사"
   },
   "guide": {
     "title": "유튜브 챕터 규칙 가이드 — 0:00 · 10초 간격 · 3개 이상",

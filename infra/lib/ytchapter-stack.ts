@@ -38,6 +38,8 @@ export class YtchapterStack extends cdk.Stack {
       hostedZoneName: ZONE_NAME,
       certificate: props.certificate,
       sourcePath: path.resolve(__dirname, '../../dist'),
+      sharedOriginAccessControlId: 'E3VLE3DK5M8JSE',
+      sharedRewriteFunctionArn: 'arn:aws:cloudfront::778021795831:function/bal-pe-kr-rewrite',
     });
     new cdk.CfnOutput(this, 'Url', { value: `https://${site.domainName}` });
     new cdk.CfnOutput(this, 'BucketName', { value: site.bucket.bucketName });

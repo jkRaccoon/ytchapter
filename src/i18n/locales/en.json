@@ -1,0 +1,63 @@
+{
+  "site": {
+    "brandPrefix": "YouTube Chapter",
+    "brandSuffix": "Timestamp Formatter",
+    "footerCopyright": "© 2026 ytchapter.bal.pe.kr · A helper tool based on official YouTube chapter rules."
+  },
+  "nav": {
+    "home": "Chapter Formatter",
+    "guide": "Guide",
+    "faq": "FAQ"
+  },
+  "lang": {
+    "toKorean": "한국어",
+    "toEnglish": "English"
+  },
+  "minimalEn": {
+    "title": "Korean-only content",
+    "body": "This page is currently available in Korean only. Please switch to Korean to read the full content.",
+    "linkLabel": "View in Korean →"
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "YouTube Chapter Timestamp Formatter — Auto Validate 0:00 Rule",
+    "description": "Convert free-form timestamps (1m30s, 01:30, etc.) to YouTube chapter format and validate 0:00 start, 10-second gap, 3+ chapters, ascending order rules in real time.",
+    "h1": "YouTube Chapter Timestamp Formatter",
+    "lead": "Paste free-form timestamps and get YouTube-compliant chapter format + real-time rule violation detection.",
+    "inputLabel": "Input (free format)",
+    "outputLabel": "Output (YouTube chapter format)",
+    "copyBtn": "Copy",
+    "copiedBtn": "✓ Copied",
+    "noValidChapters": "(No valid chapters)",
+    "passAll": "✅ All YouTube chapter rules passed. Paste directly into the description.",
+    "violationTitle": "❗ Rule violations",
+    "supportedFormats": "Supported formats: 0:00, 01:30, 1:02:45, 1m30s, 90s, 1.30, etc.",
+    "parseResultLabel": "Line-by-line parse result",
+    "colNum": "#",
+    "colRaw": "Original",
+    "colTime": "Time",
+    "colTitle": "Title",
+    "colError": "Error",
+    "emptyLine": "(empty line)",
+    "guideLink": "Guide",
+    "faqLink": "FAQ",
+    "guideAndFaq": "For YouTube chapter rules, see Guide; for frequently asked questions, see FAQ."
+  },
+  "guide": {
+    "title": "YouTube Chapter Rules Guide — 0:00 · 10s Gap · 3+ Chapters",
+    "description": "For YouTube chapters to be recognized in the description, all 5 rules must be met: 0:00 start, 10s+ gap, 3+ chapters, ascending order, colon format.",
+    "h1": "YouTube Chapter Rules Guide",
+    "lead": "YouTube only activates chapters when the description contains a timestamp list that satisfies all the following rules.",
+    "backToHome": "Back to Chapter Formatter."
+  },
+  "faq": {
+    "title": "YouTube Chapter FAQ — Activation Conditions, Shorts, Emoji, URL Recognition",
+    "description": "10 frequently asked questions about why chapters don't activate, long video formatting, Shorts support, emoji usage, and chapter count limits.",
+    "h1": "Frequently Asked Questions",
+    "lead": "10 questions about YouTube chapters."
+  }
+}

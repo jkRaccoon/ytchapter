@@ -67,6 +67,7 @@ export default function Home() {
   const [history, setHistory] = useState<HistoryEntry[]>(() => loadHistory());
   const [showHistory, setShowHistory] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [shareCopied, setShareCopied] = useState(false);
 
   const result = useMemo(() => formatText(text), [text]);
 
@@ -111,6 +112,38 @@ export default function Home() {
     const srtContent = chaptersToSrt(result.chapters);
     downloadSrt(srtContent);
   }, [result.chapters, validCount]);
+
+  // 공유 URL — 입력 텍스트를 base64 토큰으로 직렬화
+  const copyShareUrl = useCallback(async () => {
+    if (typeof window === 'undefined') return;
+    try {
+      const token = btoa(encodeURIComponent(text));
+      const url = `${window.location.origin}/?s=${token}`;
+      await navigator.clipboard.writeText(url);
+      setShareCopied(true);
+      track('share_url_copied', { valid_count: validCount });
+      setTimeout(() => setShareCopied(false), 1800);
+    } catch {
+      /* noop */
+    }
+  }, [text, validCount]);
+
+  // URL 토큰 자동 로드 (첫 렌더 1회)
+  const loadedRef = useState(false);
+  useEffect(() => {
+    if (loadedRef[0] || typeof window === 'undefined') return;
+    loadedRef[1](true);
+    const sp = new URLSearchParams(window.location.search);
+    const tok = sp.get('s');
+    if (!tok) return;
+    try {
+      const decoded = decodeURIComponent(atob(tok));
+      if (decoded && decoded !== text) persist(decoded);
+    } catch {
+      /* invalid token */
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const restoreHistory = useCallback((entry: HistoryEntry) => {
     track('history_restored', { chapters_count: entry.chaptersCount });
@@ -225,7 +258,24 @@ export default function Home() {
               {t('home.srtBtn')}
             </button>
           )}
+          {/* Share URL */}
+          <button
+            onClick={copyShareUrl}
+            className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
+            title={lang === 'ko' ? '입력값 공유 URL 복사' : 'Copy share URL with current input'}
+          >
+            {shareCopied ? (lang === 'ko' ? '복사됨!' : 'Copied!') : (lang === 'ko' ? '🔗 공유' : '🔗 Share')}
+          </button>
         </div>
+      </div>
+
+      {/* a11y aria-live region for copy/share/srt actions */}
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+        {copied
+          ? (lang === 'ko' ? '챕터 텍스트 복사됨' : 'Chapter text copied')
+          : shareCopied
+            ? (lang === 'ko' ? '공유 URL 복사됨' : 'Share URL copied')
+            : ''}
       </div>
 
       {/* History dropdown */}
